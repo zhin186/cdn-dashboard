@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cdn-analytics
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cdn-analytics-config
+  namespace: cdn-analytics
+data:
+  O2_ORG: "default"
+  O2_NODES: "http://o2-querier-1:5080,http://o2-querier-2:5080,http://o2-querier-3:5080"
+  REDIS_URL: "redis://redis:6379"
+  CORS_ORIGIN: "*"
+  NODE_ENV: "production"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cdn-analytics-secrets
+  namespace: cdn-analytics
+type: Opaque
+stringData:
+  O2_USER: "root@example.com"
+  O2_PASS: "Complexpass#123"
+  JWT_SECRET: "your-super-secret-jwt-key-change-this"
