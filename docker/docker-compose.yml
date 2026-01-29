@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  cdn-analytics:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - O2_URL=http://openobserve-router.openobserve.svc.cluster.local:5080
+      - O2_USER=root@example.com
+      - O2_PASS=Complexpass#123
+      - O2_ORG=default
+      - CORS_ORIGIN=*
+    restart: always

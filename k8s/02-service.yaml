@@ -3,15 +3,11 @@ kind: Service
 metadata:
   name: cdn-analytics
   namespace: cdn-analytics
-  labels:
-    app: cdn-analytics
 spec:
   type: ClusterIP
   ports:
     - port: 80
       targetPort: 80
-      protocol: TCP
-      name: http
   selector:
     app: cdn-analytics
 ---
@@ -22,15 +18,8 @@ metadata:
   namespace: cdn-analytics
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
-  tls:
-    - hosts:
-        - cdn-analytics.yourdomain.com
-      secretName: cdn-analytics-tls
   rules:
     - host: cdn-analytics.yourdomain.com
       http:

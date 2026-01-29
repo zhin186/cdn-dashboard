@@ -9,9 +9,9 @@ metadata:
   name: cdn-analytics-config
   namespace: cdn-analytics
 data:
+  PORT: "3000"
+  O2_URL: "http://openobserve-router.openobserve.svc.cluster.local:5080"
   O2_ORG: "default"
-  O2_NODES: "http://o2-querier-1:5080,http://o2-querier-2:5080,http://o2-querier-3:5080"
-  REDIS_URL: "redis://redis:6379"
   CORS_ORIGIN: "*"
   NODE_ENV: "production"
 ---
@@ -23,5 +23,4 @@ metadata:
 type: Opaque
 stringData:
   O2_USER: "root@example.com"
-  O2_PASS: "Complexpass#123"
-  JWT_SECRET: "your-super-secret-jwt-key-change-this"
+  O2_PASS: "your-password-here"
