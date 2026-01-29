@@ -22,5 +22,5 @@ metadata:
   namespace: cdn-analytics
 type: Opaque
 stringData:
-  O2_USER: "root@example.com"
-  O2_PASS: "your-password-here"
+  O2_USER: "zhangxun@wanshinet.cn"
+  O2_PASS: "1qaz#EDC"

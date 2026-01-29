@@ -1,0 +1,7 @@
+# 自签名证书（内部测试）
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: selfsigned-issuer
+spec:
+  selfSigned: {}

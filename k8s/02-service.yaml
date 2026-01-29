@@ -21,7 +21,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: cdn-analytics.yourdomain.com
+    - host: cdn-dashboard.wanshinet.cn
       http:
         paths:
           - path: /
